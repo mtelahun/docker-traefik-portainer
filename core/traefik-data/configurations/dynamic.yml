@@ -24,7 +24,7 @@ http:
       rule: Host('rport.trevi.et')
       service: rport
       tls:
-        cert-resolver: default
+        cert-resolver: letsencrypt
 
 tls:
   options:
