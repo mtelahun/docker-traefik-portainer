@@ -11,8 +11,6 @@ http:
         - websecure
       rule: Host('rport.trevi.et')
       service: rport
-      tls:
-        cert-resolver: letsencrypt
 
   services:
     rport-secure:
