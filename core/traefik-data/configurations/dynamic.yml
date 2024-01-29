@@ -1,17 +1,5 @@
 # Dynamic configuration
 http:
-  middlewares:
-    secureHeaders:
-      headers:
-        sslRedirect: true
-        forceSTSHeader: true
-        stsIncludeSubdomains: true
-        stsPreload: true
-        stsSeconds: 31536000
-    user-auth:
-      basicAuth:
-        users:
-          - "admin:$apr1$eNLECaMO$1kIY.Lf3a8ttCyZ3EaDGx/"
   routers:
     rport:
       entryPoints:
@@ -25,6 +13,19 @@ http:
       service: rport
       tls:
         cert-resolver: letsencrypt
+
+  middlewares:
+    secureHeaders:
+      headers:
+        sslRedirect: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+    user-auth:
+      basicAuth:
+        users:
+          - "admin:$apr1$eNLECaMO$1kIY.Lf3a8ttCyZ3EaDGx/"
 
 tls:
   options:
