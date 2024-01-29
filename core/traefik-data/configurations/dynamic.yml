@@ -10,7 +10,7 @@ http:
       entryPoints:
         - websecure
       rule: Host('rport.trevi.et')
-      service: rport
+      service: rport-secure
 
   services:
     rport-secure:
