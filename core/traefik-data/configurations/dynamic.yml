@@ -14,6 +14,18 @@ http:
       tls:
         cert-resolver: letsencrypt
 
+  services:
+    rport-secure:
+      loadbalancer:
+        servers:
+        - url: http://149.56.103.165:52443
+        passHostHeader: true
+    rport:
+      loadbalancer:
+        servers:
+        - url: http://149.56.103.165:52080
+        passHostHeader: true
+
   middlewares:
     secureHeaders:
       headers:
@@ -37,15 +49,3 @@ tls:
         - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
         - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
       minVersion: VersionTLS12
-
-services:
-  rport-secure:
-    loadbalancer:
-      servers:
-      - url: http://149.56.103.165:52443
-      passHostHeader: true
-  rport:
-    loadbalancer:
-      servers:
-      - url: http://149.56.103.165:52080
-      passHostHeader: true
