@@ -4,24 +4,24 @@ http:
     rport:
       entryPoints:
         - web
-      rule: Host('rport.trevi.et')
-      service: rport
+      rule: "Host(`rport.trevi.et`)"
+      service: "rport"
     rport-secure:
       entryPoints:
         - websecure
-      rule: Host('rport.trevi.et')
-      service: rport-secure
+      rule: "Host(`rport.trevi.et`)"
+      service: "rport-secure"
 
   services:
     rport-secure:
       loadbalancer:
         servers:
-        - url: http://149.56.103.165:52443
+        - url: "http://149.56.103.165:52443"
         passHostHeader: true
     rport:
       loadbalancer:
         servers:
-        - url: http://149.56.103.165:52080
+        - url: "http://149.56.103.165:52080"
         passHostHeader: true
 
   middlewares:
